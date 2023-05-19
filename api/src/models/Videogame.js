@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
     platforms:{
       type: DataTypes.STRING,
     },
-    image: {
+    background_image: {
       type: DataTypes.STRING,
     },
     updated:{
@@ -28,5 +28,8 @@ module.exports = (sequelize) => {
     rating:{
       type: DataTypes.STRING
     }
+  },
+  {
+    timestamps: false,
   });
 };
