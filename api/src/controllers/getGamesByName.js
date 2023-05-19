@@ -1,4 +1,5 @@
 require("dotenv").config();
+const {Videogame} = require("../db")
 const axios = require("axios");
 
 const { API_KEY } = process.env;
@@ -33,4 +34,12 @@ const getGamesByName = async (name) => {
 	return character.flat();
 };
 
-module.exports = getGamesByName;
+const getAllGamesByName = async (name) => {
+  const getNameDBB = await Videogame.findAll({where: {name}})
+  const getNameApi = await getGamesByName(name)
+
+  return [...getNameApi, getNameDBB]
+}
+
+
+module.exports = getAllGamesByName;

@@ -3,7 +3,7 @@ const axios = require("axios");
 
 const { API_KEY } = process.env;
 const URL_GAMES = `https://api.rawg.io/api/games?key=${API_KEY}`;
-
+const {Videogame} = require("../db")
 // busqueda total de API:
 
 const videoGames = async () => {
@@ -32,8 +32,13 @@ const videoGames = async () => {
 };
 
 
+const videoAllGames = async () =>{
+	const gamesAllDBB = await Videogame.findAll()
+	const gamesAllApi = await videoGames()
+
+	return [...gamesAllDBB, ...gamesAllApi]
+}
 
 
 
-
-module.exports = videoGames;
+module.exports = videoAllGames;

@@ -1,5 +1,6 @@
 require("dotenv").config();
 const axios = require("axios");
+const {Videogame} = require("../db")
 
 const { API_KEY } = process.env;
 const URL_GAMES = `https://api.rawg.io/api/games`;
@@ -23,11 +24,12 @@ const gamesById = async(id) => {
 }
 
 
-const getGamesById = (id,source) => {
-
-    const dataApi = gamesById(id)
+const getGamesById = async (id,source) => {
   
-    return dataApi
+  if (source==="DDB") {
+      return await Videogame.findByPk(id)
+    }
+  return await gamesById(id)
 }
 
 module.exports = getGamesById

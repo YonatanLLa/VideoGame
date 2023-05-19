@@ -1,21 +1,39 @@
-const videoGames = require("../controllers/getGames");
+const videoAllGames = require("../controllers/getGames");
 const getGamesById = require("../controllers/getGamesById");
 const getGamesByName = require("../controllers/getGamesByName");
+const postGames = require("../controllers/postGames");
 
-// const handlerPostVideoGames = async (req, res) => {
-// 	try {
-// 		const { name, platforms, background_image, released, rating, genres, description, updated } =
-// 			req.body;
-// 	} catch (error) {
-//         res.status(500).json({error: error.message})
-//     }
-// };
+const handlerPostVideoGames = async (req, res) => {
+	try {
+		const {
+			name,
+			platforms,
+			background_image,
+			released,
+			rating,
+			description,
+			genres,
+		} = req.body;
+		const postAllGames = await postGames(
+			name,
+			platforms,
+			background_image,
+			released,
+			rating,
+			description,
+			genres
+		);
+		res.status(200).json(postAllGames)
+	} catch (error) {
+		res.status(500).json({ error: error.message });
+	}
+};
 
 const handlerVideoGames = async (req, res) => {
 	try {
 		const { name } = req.query;
 
-		const allGames = name ? await getGamesByName(name) : await videoGames();
+		const allGames = name ? await getGamesByName(name) : await videoAllGames();
 
 		res.status(200).json(allGames);
 	} catch (error) {
@@ -34,6 +52,5 @@ const handlerGamesById = async (req, res) => {
 	}
 };
 
-// const getGames
 
-module.exports = { handlerVideoGames, handlerGamesById };
+module.exports = { handlerVideoGames, handlerGamesById, handlerPostVideoGames };
