@@ -7,7 +7,7 @@ export const LeftNavBar = () => {
     <nav>
         <ul>
             {/* <SearchBar/> */}
-            <li><Link to="/">Inicio</Link></li>
+            <li className='font-bold  font-kanit text-2xl leading-7 '><Link to="/">Inicio</Link></li>
             {/* <li><Link to="/form">Formulario</Link></li> */}
             {/* <li><Link to="/favorite">Favorito</Link></li> */}
 

@@ -11,13 +11,13 @@ function App() {
   console.log(location);
 
   return (
-    <div>
+    <div className=" "  style={{boxSizing: "border-box"}}>
       <header>
         <h1>hola</h1>
         
         {location.pathname !== "" && <TopNavBar />}
       </header>
-      <div>
+      <div className="flex items-center justify-center flex-1 min-h-full w-full">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/form" element={<Form />} />

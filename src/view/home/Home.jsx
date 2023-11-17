@@ -10,11 +10,11 @@ export const Home = () => {
     dispatch(getAllCharacters());
   }, [dispatch]);
   return (
-    <div className="flex">
-      <div>
+    <div className="flex mx-10 max-w-[1920px] ">
+      <div className="sticky top-0">
         <LeftSideBar />
       </div>
-      <main>
+      <main className="flex flex-col flex-grow w-full">
         <div>
           <h1>New and trending Based on player counts and release date</h1>
         </div>
@@ -23,7 +23,7 @@ export const Home = () => {
             <section>Filtroo</section>
             <section>Cambio de forma</section>
           </div>
-          <div className="flex justify-center">
+          <div className="max-w-[1920px] ">
             <Header />
           </div>
         </div>

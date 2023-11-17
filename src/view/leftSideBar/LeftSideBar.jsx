@@ -3,7 +3,7 @@ import { LeftNavBar } from "../../components/LeftNavBar"
 
 export const LeftSideBar = () => {
   return (
-    <aside>
+    <aside className=' w-[200px]'>
       <LeftNavBar/>
       <div>
         LeftSideBar
