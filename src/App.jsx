@@ -4,25 +4,32 @@ import { Home } from "./view/home/Home";
 import { TopNavBar } from "./components/TopNavBar.jsx";
 import { Form } from "./view/form/Form.jsx";
 import { Favorite } from "./view/favorite/Favorite.jsx";
-
+import { LeftSideBar } from "./view/leftSideBar/LeftSideBar.jsx";
 function App() {
   const location = useLocation();
 
   console.log(location);
 
   return (
-    <div className=" "  style={{boxSizing: "border-box"}}>
-      <header>
-        <h1>hola</h1>
-        
-        {location.pathname !== "" && <TopNavBar />}
+    <div className=" " style={{ boxSizing: "border-box" }}>
+      <header className="flex items-center justify-center flex-1 min-h-full w-full">
+        <div className="w-full max-w-[1920px]  mx-[40px]">
+          {location.pathname !== "" && <TopNavBar />}
+        </div>
       </header>
       <div className="flex items-center justify-center flex-1 min-h-full w-full">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/form" element={<Form />} />
-          <Route path="/favorite" element={<Favorite />} />
-        </Routes>
+        <div className="flex mx-10 max-w-[1920px] ">
+
+          <div className="sticky top-0">
+            {location.pathname !== "" && <LeftSideBar />}
+          </div>
+
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/form" element={<Form />} />
+            <Route path="/review" element={<Favorite />} />
+          </Routes>
+        </div>
       </div>
     </div>
   );

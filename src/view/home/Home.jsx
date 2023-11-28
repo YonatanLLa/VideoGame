@@ -2,18 +2,21 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getAllCharacters } from "../../redux/actions/characterActions";
 import { Header } from "../../components/Header";
-import { LeftSideBar } from "../leftSideBar/LeftSideBar.jsx";
+// import { LeftSideBar } from "../leftSideBar/LeftSideBar.jsx";
+import { useLocation } from "react-router-dom";
 
 export const Home = () => {
+  const location = useLocation();
+  console.log(location);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getAllCharacters());
   }, [dispatch]);
   return (
-    <div className="flex mx-10 max-w-[1920px] ">
-      <div className="sticky top-0">
-        <LeftSideBar />
-      </div>
+    <div >
+      {/* <div className="sticky top-0">
+        {location.pathname !== "" && <LeftSideBar />}
+      </div> */}
       <main className="flex flex-col flex-grow w-full">
         <div>
           <h1>New and trending Based on player counts and release date</h1>
