@@ -1,18 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  characters: []
-
-}
+  characters: [],
+};
 
 export const characterSlice = createSlice({
   name: "character",
   initialState,
   reducers: {
-    getCharacters: (state, {payload}) => {
+    getCharacters: (state, { payload }) => {
       state.characters = payload;
     },
-    
   },
 });
 

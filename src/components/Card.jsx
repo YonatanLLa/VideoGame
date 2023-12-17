@@ -64,6 +64,7 @@ export const Card = ({
             </li>
           ))}
         </ul>
+        
         <h1 className="font-bold  font-kanit text-2xl leading-7 mb-2 text-white">
           {name}
         </h1>

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getAllCharacters } from "../../redux/actions/characterActions";
-import { Header } from "../../components/Header";
+import { getAllCharacters, getAllCharactersById } from "../../redux/actions/characterActions";
+import { Header } from "../../components/CardHeader";
 // import { LeftSideBar } from "../leftSideBar/LeftSideBar.jsx";
 import { useLocation } from "react-router-dom";
 
